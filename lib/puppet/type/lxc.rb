@@ -56,6 +56,16 @@ Puppet::Type.newtype(:lxc) do
     end
   end
 
+  newparam(:config_options) do
+    desc 'Custom options for container'
+
+    validate do |value|
+      unless value.kind_of?Hash
+        raise ArgumentError, "config_options is #{value.class}, expected Hash"
+      end
+    end
+  end
+
   newproperty(:state) do
     desc 'Whether a container should be running, stopped or frozen.'
 

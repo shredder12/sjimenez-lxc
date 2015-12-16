@@ -14,6 +14,9 @@ Puppet::Type.type(:lxc).provide(:container) do
       @container.set_config_item('lxc.start.delay',@resource[:autostart_delay]) if not @resource[:autostart_delay].nil?
       @container.set_config_item('lxc.start.order',@resource[:autostart_order]) if not @resource[:autostart_order].nil?
       @container.set_config_item('lxc.group',@resource[:groups]) if @resource[:groups].kind_of?Array
+      @resource[:config_options].each do |k,v|
+        @container.set_config_item(k,v)
+      end
     rescue LXC::Error => e
       fail("Failed to create #{@resource[:name]}: #{e.message}")
     end

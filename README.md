@@ -145,6 +145,7 @@ For more information about LXC visit: [linuxcontainers.org](https://linuxcontain
   * autostart_delay: time to wait before starting next container.
   * autostart_order: position on which the container will be started.
   * groups: array with all the container's groups.
+  * config_options: custom lxc options to be added to container's lxc config file.
 
 
 #### lxc_interface
@@ -195,6 +196,7 @@ lxc { 'ubuntu_test':
   template_options => ['--mirror','http://de.archive.ubuntu.com/ubuntu'],
   storage_backend  => 'lvm',
   storage_options  => {'vgname' => 'vg00', 'lvname' => 'ubuntu_test01'},
+  config_options   => {'lxc.mount.entry' => '/dev/sda1 mnt ext4 defaults 0 2'}
 }
 
 # Will configure eth1 on container 'ubuntu_test', with two different IP addresses
