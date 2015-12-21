@@ -67,7 +67,7 @@ Puppet::Type.newtype(:lxc) do
   end
 
   newproperty(:state) do
-    desc 'Whether a container should be running, stopped or frozen.'
+    desc 'Whether a container should be just created, running, stopped or frozen.'
 
     defaultto :running
 
@@ -81,6 +81,9 @@ Puppet::Type.newtype(:lxc) do
 
     newvalue(:frozen, :event => :container_frozen) do
       provider.freeze
+    end
+
+    newvalue(:created, :event => :container_created) do
     end
 
     def retrieve
