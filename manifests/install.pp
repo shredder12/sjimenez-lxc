@@ -25,6 +25,16 @@ class lxc::install inherits lxc::params {
     notify => Class['lxc::service'],
   }
 
+  package { $lxc::lxc_lxc_templates_package:
+    ensure => $lxc::lxc_lxc_version,
+    tag    => 'lxc_packages',
+  }
+
+  package { $lxc::lxc_debootstrap_package:
+    ensure => $lxc::lxc_debootstrap_version,
+    tag    => 'lxc_packages',
+  }
+
   package { $lxc_ruby_bindings_deps:
     ensure => latest,
     tag    => 'lxc_packages',

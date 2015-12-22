@@ -33,10 +33,13 @@ class lxc::params {
   $lxc_ruby_bindings_package         = 'ruby-lxc'
   $lxc_ruby_bindings_version         = '1.2.0'
   $lxc_lxc_package                   = 'lxc'
+  $lxc_lxc_templates_package         = 'lxc-templates'
   $lxc_lxc_version                   = latest
   $lxc_lxc_service                   = 'lxc'
   $lxc_lxc_service_ensure            = running
   $lxc_lxc_service_enabled           = true
+  $lxc_debootstrap_package           = 'debootstrap'
+  $lxc_debootstrap_version           = latest
   $lxc_cgmanager_service             = 'cgmanager'
   $lxc_cgmanager_service_ensure      = running
   $lxc_cgmanager_service_enabled     = true
@@ -57,4 +60,3 @@ class lxc::params {
   $network_nat_conf                  = '/etc/default/lxc-net'
   $network_nat_service               = 'lxc-net'
 }
-
