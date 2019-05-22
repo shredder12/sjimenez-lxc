@@ -14,7 +14,7 @@ class lxc::params {
   case $::operatingsystem {
     'Ubuntu': {
       case $::lsbdistcodename {
-        'trusty': {
+        /^(trusty|xenial)$/': {
           $lxc_ruby_bindings_gem_deps = [
             'build-essential', 'ruby-dev', 'lxc-dev', 'libcgmanager0'
           ]
